@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Me Coin</title>
+    <script>
+        function redirectToTwitter() {
+            // Define the funny lines for each rating
+            const ratings = {
+                0: "Sucks to suck! 😅",
+                1: "Yikes... better luck next time! 😬",
+                2: "Not great, not terrible. 😐",
+                3: "You’re slightly below average. 🤷",
+                4: "Meh, you’re alright. 😏",
+                5: "Perfectly average. Not bad! 😎",
+                6: "Slightly above average. Keep going! 💪",
+                7: "You’re doing great, sweetie! 🌟",
+                8: "Pretty impressive. Keep it up! 🎉",
+                9: "Wow, almost perfect! 👏",
+                10: "You’re a star! 🌟🌟",
+                11: "You are the GOAT! 🐐🔥"
+            };
+
+            // Weighted probabilities for generating a random number
+            const probabilities = [
+                0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5,
+                6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11
+            ];
+
+            // Generate a random number based on the probabilities
+            const randomNumber = probabilities[Math.floor(Math.random() * probabilities.length)];
+
+            // Get the corresponding funny line
+            const funnyLine = ratings[randomNumber];
+
+            // Create the tweet content
+            const tweetText = `I rate you ${randomNumber}! ${funnyLine}%0A%0A$RATEMECOIN`;
+
+            // Redirect to Twitter's tweet intent page
+            window.location.href = `https://twitter.com/intent/tweet?text=${tweetText}`;
+        }
+    </script>
+</head>
+<body onload="redirectToTwitter()">
+</body>
+</html>
