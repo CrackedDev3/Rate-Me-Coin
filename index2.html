@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Me Coin</title>
+    <script>
+        function redirectToTwitter() {
+            // Define multiple funny lines for each rating
+            const ratings = {
+                0: [
+                    "Sucks to suck! 😅",
+                    "Oof, that’s rough. 😬",
+                    "Better luck next time, champ! 😕",
+                    "A solid 0, like your effort. 😜",
+                    "You broke the scale... in the wrong direction. 💔",
+                    "Someone needs a hug. 😭",
+                    "Even the RNG felt bad for you. 🙃",
+                    "At least you’re consistent. 😆",
+                    "Welp, there’s always tomorrow. 🌧️",
+                    "0 out of 10, but at least you’re trying! 🫠"
+                ],
+                1: [
+                    "Yikes... better luck next time! 😬",
+                    "Hey, at least it’s not a 0! 🥲",
+                    "Room for improvement, right? 😅",
+                    "Small steps, my friend. 🚶‍♂️",
+                    "1 is the loneliest number. 🎵",
+                    "It’s a start, kind of... 😐",
+                    "Almost there... not really. 😂",
+                    "You’ve got this, maybe. 🤞",
+                    "Don’t give up! You’re number 1! 🏆",
+                    "Chin up, it’s still a number! 🤷"
+                ],
+                // Repeat for numbers 2 through 11
+                2: [
+                    "Not great, not terrible. 😐",
+                    "2 is twice as good as 1, right? 😏",
+                    "Keep climbing, you’re getting there! 🪜",
+                    "Well, it’s progress. 😌",
+                    "Double the disappointment of 1. 😂",
+                    "Some improvement, but not much. 🤷",
+                    "Hey, it’s better than 0! 🥳",
+                    "You’re on the board! 📊",
+                    "Mediocre, but in a charming way. 😎",
+                    "2: the number of seconds it took to generate this. ⏳"
+                ],
+                3: [
+                    "You’re slightly below average. 🤷",
+                    "3 is the magic number... or not. ✨",
+                    "You’re almost in the middle! 🧐",
+                    "Average vibes incoming. 😐",
+                    "At least it’s a prime number. 🤓",
+                    "You’re a solid meh. 🤔",
+                    "Better than 2, not as good as 4. 😅",
+                    "Progress is progress, right? 🐢",
+                    "Slow and steady wins the race. 🏁",
+                    "Solidly not impressive. 😜"
+                ],
+                // Add similar arrays for numbers 4 to 10
+                11: [
+                    "You are the GOAT! 🐐🔥",
+                    "Legendary status achieved! 🌟",
+                    "11/10, you’re off the charts! 🚀",
+                    "This is your moment, embrace it! 🎉",
+                    "You’ve conquered the RNG gods! 🙌",
+                    "Perfection redefined. 👑",
+                    "The ultimate rating for the ultimate you. 💎",
+                    "No words can describe your greatness. 😍",
+                    "Wow, just wow. 🤯",
+                    "The universe bows to your glory. 🌌"
+                ]
+            };
+
+            // Weighted probabilities for generating a random number
+            const probabilities = [
+                0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5,
+                6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11
+            ];
+
+            // Generate a random number based on the probabilities
+            const randomNumber = probabilities[Math.floor(Math.random() * probabilities.length)];
+
+            // Get a random funny line for the selected number
+            const funnyLines = ratings[randomNumber];
+            const funnyLine = funnyLines[Math.floor(Math.random() * funnyLines.length)];
+
+            // Create the tweet content
+            const tweetText = `I rate you ${randomNumber}! ${funnyLine}%0A%0A$RATEMECOIN`;
+
+            // Redirect to Twitter's tweet intent page
+            window.location.href = `https://twitter.com/intent/tweet?text=${tweetText}`;
+        }
+    </script>
+</head>
+<body onload="redirectToTwitter()">
+</body>
+</html>
